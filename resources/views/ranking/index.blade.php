@@ -1,41 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        .ranking-table {
-            border-radius: 10px;
-            overflow: hidden; /* Zapewnia zaokrąglenie rogów dla całości tabeli */
-        }
-        .ranking-table th {
-            background: linear-gradient(to right, #2980b9, #6dd5ed);
-            color: white;
-            text-align: center; /* Wyśrodkowanie tekstu */
-            border: none; /* Usunięcie standardowych obramowań */
-            padding: 12px; /* Zwiększenie paddingu */
-            white-space: nowrap; /* Zapobiega zawijaniu tekstu */
-        }
-         .ranking-table th:first-child{
-            border-top-left-radius: 10px;
-        }
-        .ranking-table th:last-child{
-            border-top-right-radius: 10px;
-        }
-        .ranking-table td {
-          text-align: center;
-            border: none;
-             padding: 10px; /* Zwiększenie paddingu */
-        }
+<style>
+    .ranking-table {
+        border-radius: 8px; /* Delikatniejsze zaokrąglenie rogów */
+        overflow: hidden;
+        border-collapse: collapse; /* Łączenie krawędzi komórek */
+        width: 100%;
+        margin-bottom: 20px; /* Dodanie marginesu dolnego dla odstępu między tabelami */
+    }
 
-        .ranking-table tbody tr:nth-child(odd) {
-            background-color: #f9f9f9;
-         }
-         .ranking-table tbody tr:nth-child(even) {
-              background-color: #ffffff;
-          }
+    .ranking-table th,
+    .ranking-table td {
+        padding: 10px 12px; /* Nieco mniejszy padding */
+        text-align: left; /* Wyrównanie tekstu do lewej w komórkach danych */
+        border-bottom: 1px solid #e0e0e0; /* Cienka, jasnoszara linia oddzielająca wiersze */
+        white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+    }
 
-    </style>
+    .ranking-table th {
+        background-color: #f0f0f0; /* Bardzo jasne szare tło dla nagłówków */
+        color: #333; /* Ciemniejszy kolor tekstu dla nagłówków */
+        font-weight: 600; /* Pogrubienie tekstu w nagłówkach */
+        text-align: center; /* Wyśrodkowanie tekstu w nagłówkach */
+        border-bottom: 2px solid #c0c0c0; /* Grubsza, ciemniejsza linia pod nagłówkami */
+    }
+
+    .ranking-table th:first-child,
+    .ranking-table td:first-child {
+        text-align: center; /* Wyśrodkowanie tekstu w pierwszej kolumnie (pozycja) */
+    }
+
+    .ranking-table th:last-child,
+    .ranking-table td:last-child {
+        text-align: center; /* Wyśrodkowanie tekstu w ostatniej kolumnie (punkty) */
+    }
+
+
+    .ranking-table tbody tr:last-child th,
+    .ranking-table tbody tr:last-child td {
+        border-bottom: none; /* Usuwa dolną linię dla ostatniego wiersza */
+    }
+</style>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Ranking Użytkowników</h1>
+        <h1 class="text-center mb-4">Ranking użytkowników</h1>
         <div class="row">
         @foreach($rankings as $level => $ranking)
            <div class="col-12 col-md-6 mb-4">
@@ -67,8 +75,14 @@
             </div>
         @endforeach
         </div>
-       <div class="text-center">
-          <a href="{{ route('dashboard') }}" class="btn btn-secondary mt-3">Powrót do menu</a>
-        </div>
+
+        @if (Auth::user()->isAdmin())
+    
+        
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary mt-3 d-md-none">Powrót do menu</a>
+        @else
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary mt-3 d-md-none">Powrót do menu</a>
+            @endif
     </div>
+    
 @endsection

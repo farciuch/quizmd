@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1 class="text-center">Edytuj Pytanie</h1>
+    <h1 class="text-center">Edytuj pytanie</h1>
 
     <form action="{{ route('admin.questions.update', $question->IdPytania) }}" method="POST">
         @csrf
@@ -10,13 +10,13 @@
 
         <!-- Treść pytania -->
         <div class="form-group mb-3">
-            <label for="Pytanie">Treść Pytania:</label>
+            <label for="Pytanie">Treść pytania:</label>
             <input type="text" class="form-control" id="Pytanie" name="Pytanie" value="{{ $question->Pytanie }}" required>
         </div>
 
         <!-- Poziom trudności -->
         <div class="form-group mb-3">
-            <label for="IdPoziom">Poziom Trudności:</label>
+            <label for="IdPoziom">Poziom trudności:</label>
             <select class="form-control" id="IdPoziom" name="IdPoziom" required>
                 @foreach($difficultyLevels as $level)
                     <option value="{{ $level->IdPoziom }}" 
@@ -43,7 +43,7 @@
 
         <!-- Przycisk zapisu -->
         <button type="submit" class="btn btn-success">Zapisz zmiany</button>
-        <a href="{{ route('admin.questions.index') }}" class="btn btn-secondary">Powrót</a>
+        <a href="{{ route('admin.questions.index') }}" class="btn btn-secondary d-md-none">Powrót</a>
     </form>
 </div>
 @endsection

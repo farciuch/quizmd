@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h2>Zgłoś Nowe Pytanie</h2>
+    <h2>Zgłoś nowe pytanie</h2>
 
     <form action="{{ route('reports.store') }}" method="POST">
         @csrf
@@ -44,6 +44,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Zgłoś pytanie</button>
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary  d-md-none">Powrót do menu</a>
     </form>
 </div>
 @endsection

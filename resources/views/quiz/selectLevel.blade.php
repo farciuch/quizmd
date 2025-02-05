@@ -16,8 +16,9 @@
         </div>
 
         <button type="submit" class="btn btn-success mt-3">Rozpocznij Quiz</button>
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary mt-3 d-md-none">Powrót do menu</a>
     </form>
-
-    <a href="{{ route('dashboard') }}" class="btn btn-secondary mt-3">Powrót do menu</a>
+  
+   
 </div>
 @endsection

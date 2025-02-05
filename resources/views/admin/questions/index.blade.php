@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1 class="text-center">Baza Pytań</h1>
+    <h1 class="text-center">Baza pytań</h1>
     
     <div class="mb-3">
         <a href="{{ route('admin.questions.create') }}" class="btn btn-primary">Dodaj nowe pytanie</a>
@@ -16,7 +16,7 @@
                 <tr>
                     <th><input type="checkbox" id="select-all"></th>
                     <th>Pytanie</th>
-                    <th>Poziom Trudności</th>
+                    <th>Poziom trudności</th>
                     <th>Akcje</th>
                 </tr>
             </thead>
@@ -38,7 +38,9 @@
 
         <div class="form-group mt-3">
             <button type="submit" class="btn btn-danger">Usuń zaznaczone</button>
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary d-md-none">Powrót do menu</a>
         </div>
+        
     </form>
 </div>
 

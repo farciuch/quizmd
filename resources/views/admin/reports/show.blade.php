@@ -2,15 +2,16 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1 class="text-center">Szczegóły Zgłoszenia</h1>
+    <h1 class="text-center">Szczegóły zgłoszenia</h1>
 
     <div class="card mt-4">
         <div class="card-body">
             <h4><strong>Użytkownik:</strong> {{ $report->uzytkownik->name }}</h4>
             <h4><strong>Email:</strong> {{ $report->uzytkownik->email }}</h4>
-            <h4><strong>Treść Pytania:</strong></h4>
-            <p>{{ $report->Tresc_zgloszenia }}</p>
             <h4><strong>Poziom trudności:</strong> {{ $report->poziomTrudnosci->Trudnosc }}</h4>
+            <h4><strong>Data zgłoszenia:</strong> {{ $report->created_at}}</h4>
+            <h4><strong>Treść pytania:</strong></h4>
+            <p>{{ $report->Tresc_zgloszenia }}</p>
         </div>
     </div>
 
@@ -18,8 +19,8 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Treść Odpowiedzi</th>
-                <th>Czy Poprawna</th>
+                <th>Treść odpowiedzi</th>
+                <th>Czy poprawna</th>
             </tr>
         </thead>
         <tbody>
@@ -35,15 +36,15 @@
     <div class="mt-4">
         <form action="{{ route('admin.reports.accept', $report->IdZgloszenie_pytania) }}" method="POST" class="d-inline">
             @csrf
-            <button type="submit" class="btn btn-success">Zaakceptuj Zgłoszenie</button>
+            <button type="submit" class="btn btn-success">Zaakceptuj zgłoszenie</button>
         </form>
 
         <form action="{{ route('admin.reports.reject', $report->IdZgloszenie_pytania) }}" method="POST" class="d-inline">
             @csrf
-            <button type="submit" class="btn btn-danger">Odrzuć Zgłoszenie</button>
+            <button type="submit" class="btn btn-danger">Odrzuć zgłoszenie</button>
         </form>
 
-        <a href="{{ route('admin.reports.index') }}" class="btn btn-secondary">Powrót</a>
+        
     </div>
 </div>
 @endsection

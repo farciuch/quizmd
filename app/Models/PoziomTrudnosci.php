@@ -10,8 +10,7 @@ class PoziomTrudnosci extends Model
     protected $table = 'poziomy_trudnosci';
     protected $primaryKey = 'IdPoziom';
     protected $fillable = [
-        'Trudnosc',
-        'Punkty',
+        'Trudnosc'
         
     ];
 

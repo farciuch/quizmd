@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('poziomy_trudnosci', function (Blueprint $table) {
             $table->id('IdPoziom');
             $table->string('Trudnosc');
-            $table->integer('Punkty');
             $table->timestamps();
         });
     }

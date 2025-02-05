@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <h1 class="text-center">Zgłoszenia z Pytaniami</h1>
+    <h1 class="text-center">Zgłoszenia z pytaniami</h1>
     
     <form action="{{ route('admin.reports.action') }}" method="POST">
         @csrf
@@ -12,9 +12,9 @@
                 <tr>
                     <th><input type="checkbox" id="select-all"></th>
                     <th>Treść zgłoszenia</th>
-                    <th>Użytkownik</th>
-                    <th>Poziom Trudności</th>
-                    <th>Data zgłoszenia</th>
+
+                    <th>Poziom trudności</th>
+
                     <th>Akcje</th>
                 </tr>
             </thead>
@@ -25,9 +25,9 @@
                         <input type="checkbox" name="reports[]" value="{{ $report->IdZgloszenie_pytania }}">
                     </td>
                     <td>{{ $report->Tresc_zgloszenia }}</td>
-                    <td>{{ $report->uzytkownik->name }}</td>
+
                     <td>{{ $report->poziomTrudnosci->Trudnosc }}</td>
-                    <td>{{ $report->created_at->format('Y-m-d') }}</td>
+                    
                     <td>
                         <a href="{{ route('admin.reports.show', $report->IdZgloszenie_pytania) }}" class="btn btn-info btn-sm">Szczegóły</a>
                     </td>
@@ -37,8 +37,9 @@
         </table>
 
         <div class="form-group mt-3">
-            <button type="submit" name="action" value="accept" class="btn btn-success">Przyjmij zaznaczone</button>
-            <button type="submit" name="action" value="reject" class="btn btn-danger">Odrzuć zaznaczone</button>
+            <button type="submit" name="action" value="accept" class="btn btn-success">Przyjmij</button>
+            <button type="submit" name="action" value="reject" class="btn btn-danger">Odrzuć</button>
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary d-md-none">Powrót do menu</a>
         </div>
     </form>
 

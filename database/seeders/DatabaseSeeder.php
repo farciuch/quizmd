@@ -27,8 +27,8 @@ class DatabaseSeeder extends Seeder
         ]);
        
         
-        $latwy = PoziomTrudnosci::create(['Trudnosc' => 'Łatwy', 'Punkty' => 1]);
-        $trudny = PoziomTrudnosci::create(['Trudnosc' => 'Trudny', 'Punkty' => 3]);
+        $latwy = PoziomTrudnosci::create(['Trudnosc' => 'Łatwy']);
+        $trudny = PoziomTrudnosci::create(['Trudnosc' => 'Trudny']);
 
         // Tworzenie 10 pytań
         for ($i = 1; $i <= 10; $i++) {
