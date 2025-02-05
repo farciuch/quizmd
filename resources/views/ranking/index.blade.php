@@ -35,7 +35,7 @@
 
     </style>
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Ranking Użytkowników</h1>
+        <h1 class="text-center mb-4">Ranking użytkowników</h1>
         <div class="row">
         @foreach($rankings as $level => $ranking)
            <div class="col-12 col-md-6 mb-4">
